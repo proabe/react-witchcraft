@@ -1,13 +1,13 @@
-import { WINNING_COMBINATIONS } from "./winning-combinations";
-import Player from "./components/Player/Player";
-import GameBoard from "./components/GameBoard/GameBoard";
-import { useState } from "react";
-import Log from "./components/Log/Log";
+import { WINNING_COMBINATIONS } from './winning-combinations';
+import Player from './components/Player/Player';
+import GameBoard from './components/GameBoard/GameBoard';
+import { useState } from 'react';
+import Log from './components/Log/Log';
 
 function derivedActivePlayer(gameTurns) {
-  let currentPlayer = "X";
-  if (gameTurns.length > 0 && gameTurns[0].player === "X") {
-    currentPlayer = "O";
+  let currentPlayer = 'X';
+  if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
+    currentPlayer = 'O';
   }
   return currentPlayer;
 }
@@ -37,12 +37,12 @@ function App() {
           <Player
             initialName="Player 1"
             symbol="X"
-            isActive={activePlayer === "X"}
+            isActive={activePlayer === 'X'}
           />
           <Player
             initialName="Player 2"
             symbol="O"
-            isActive={activePlayer === "O"}
+            isActive={activePlayer === 'O'}
           />
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
