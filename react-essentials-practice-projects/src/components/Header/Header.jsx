@@ -1,4 +1,5 @@
-import headerImg from '../../assets/investment-calculator-logo.png';
+import "./Header.css";
+import headerImg from "../../assets/investment-calculator-logo.png";
 
 export default function Header({ children }) {
   return (

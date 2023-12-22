@@ -1,6 +1,6 @@
+import "./ResultTable.css";
 import { formatter } from "../../util/investment";
 export default function ResultTable({ result }) {
-  console.log(result);
   return (
     <table id="result">
       <thead>
@@ -12,18 +12,17 @@ export default function ResultTable({ result }) {
           <th>Invested Capital</th>
         </tr>
       </thead>
-      <tbody>
-        {result && result.map((row) =>
-          (
-            <tr>
+      <tbody className="center">
+        {result &&
+          result.map((row, index) => (
+            <tr key={index}>
               <td>{row.year}</td>
               <td>{formatter.format(row.valueEndOfYear)}</td>
               <td>{formatter.format(row.interest)}</td>
               <td>{formatter.format(row.totalInterest)}</td>
               <td>{formatter.format(row.investmentCapital)}</td>
             </tr>
-          )
-        )}
+          ))}
       </tbody>
     </table>
   );

@@ -6,6 +6,7 @@ import { calculateInvestmentResults } from './util/investment';
 
 function derivedInvestments(investments) {
   if (Object.values(investments).every(Boolean)) {
+    console.log(investments);
     return calculateInvestmentResults({
       initialInvestment: Number(investments.initialInvestment),
       annualInvestment: Number(investments.annualInvestment),
