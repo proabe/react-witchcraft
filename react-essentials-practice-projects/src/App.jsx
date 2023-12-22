@@ -6,7 +6,12 @@ import { calculateInvestmentResults } from './util/investment';
 
 function derivedInvestments(investments) {
   if (Object.values(investments).every(Boolean)) {
-    return calculateInvestmentResults(investments);
+    return calculateInvestmentResults({
+      initialInvestment: Number(investments.initialInvestment),
+      annualInvestment: Number(investments.annualInvestment),
+      expectedReturn: Number(investments.expectedReturn),
+      duration: Number(investments.duration),
+    });
   }
   return null;
 }

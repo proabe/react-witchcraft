@@ -39,7 +39,7 @@ export default function UserInput({ onInvestmentChange, investments }) {
             onChange={(event) =>
               onInvestmentChange('expectedReturn', event.target.value)
             }
-            type="number"
+            type="text"
           />
         </p>
         <p>
