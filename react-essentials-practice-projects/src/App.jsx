@@ -1,21 +1,7 @@
-import Header from './components/Header/Header';
-import UserInput from './components/UserInput/UserInput';
-import ResultTable from './components/ResultTable/ResultTable';
-import { useState } from 'react';
-import { calculateInvestmentResults } from './util/investment';
-
-function derivedInvestments(investments) {
-  if (Object.values(investments).every(Boolean)) {
-    console.log(investments);
-    return calculateInvestmentResults({
-      initialInvestment: Number(investments.initialInvestment),
-      annualInvestment: Number(investments.annualInvestment),
-      expectedReturn: Number(investments.expectedReturn),
-      duration: Number(investments.duration),
-    });
-  }
-  return null;
-}
+import Header from "./components/Header/Header";
+import UserInput from "./components/UserInput/UserInput";
+import ResultTable from "./components/ResultTable/ResultTable";
+import { useState } from "react";
 
 function App() {
   const [investments, setInvestment] = useState({
@@ -23,21 +9,22 @@ function App() {
     annualInvestment: null,
     expectedReturn: null,
     duration: null,
-  })
+  });
 
   function handleInvestmentChange(key, value) {
-    setInvestment((previousInvestment) => (
-      {
-        ...previousInvestment,
-        [key]: value
-      }
-    ))
+    setInvestment((previousInvestment) => ({
+      ...previousInvestment,
+      [key]: +value,
+    }));
   }
   return (
     <>
       <Header>Investment Calculator</Header>
-      <UserInput onInvestmentChange={handleInvestmentChange} investments={investments}/>
-      <ResultTable result={derivedInvestments(investments)}/>
+      <UserInput
+        onInvestmentChange={handleInvestmentChange}
+        investments={investments}
+      />
+      <ResultTable investments={investments} />
     </>
   );
 }

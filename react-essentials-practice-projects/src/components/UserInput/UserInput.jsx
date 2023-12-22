@@ -3,10 +3,12 @@ import "./UserInput.css";
 export default function UserInput({ onInvestmentChange, investments }) {
   const { initialInvestment, annualInvestment, expectedReturn, duration } =
     investments;
-
+    console.log('--------');
+  console.log(duration);
+  console.log('--------');
   return (
     <section id="user-input">
-      {duration && duration < 1 &&<h1>Duration can't be less than 1</h1>}
+      {duration !== null && duration < 1 && <h1>Duration can't be less than 1</h1>}
       <div className="input-group">
         <Input
           onInvestmentChange={onInvestmentChange}

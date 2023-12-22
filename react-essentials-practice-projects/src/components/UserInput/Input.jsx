@@ -6,6 +6,7 @@ export default function Input({ children, onInvestmentChange, initialValue }) {
       <label>{children}</label>
       <input
         type="number"
+        required
         value={initialValue ? initialValue : ""}
         onChange={(event) =>
           onInvestmentChange(
