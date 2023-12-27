@@ -18,8 +18,6 @@ export function TimerChallenge({ title, targetTime }) {
     timer.current = setInterval(() => {
       setTimeRemaining((previousTimeRemaining) => previousTimeRemaining - 10)
     }, 10);
-
-    setTimerStarted(true);
   }
 
   function handleClick() {
